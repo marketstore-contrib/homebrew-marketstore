@@ -1,0 +1,17 @@
+language: go
+
+go:
+    - 1.13.x
+
+os: osx
+
+osx_image: xcode11.3
+
+before_install:
+    - brew update >/dev/null
+
+script:
+    - brew tap zjhmale/marketstore
+    - brew install --HEAD marketstore
+    - brew test marketstore
+    - brew uninstall marketstore
